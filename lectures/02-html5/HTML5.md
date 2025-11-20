@@ -23,7 +23,7 @@ content: `paragraphs, links, headings, images, video, etc`.
 
 ---
 - How Pages Use Structure  
-![[lectures/02-html5/Html-Structure.png]]
+![HTML Structure](lectures/02-html5/Html-Structure.png)
 
 ```HTML
 <!DOCTYPE...> This tag defines the document type and HTML version.
@@ -38,7 +38,7 @@ content: `paragraphs, links, headings, images, video, etc`.
 
 ---
 - Elements Structure
-![[lectures/02-html5/Elements-Structure.png]]
+![HTML Elements Structure](lectures/02-html5/Elements-Structure.png)
 
 ---
 
@@ -192,7 +192,7 @@ Now take a look at this block of code below ⬇️
 ```
 
 - Using Semantic HTML Tags Correctly 🤩
-![[lectures/02-html5/semantic-tags.png]]
+![Semantic HTML Tags](lectures/02-html5/semantic-tags.png)
 
 - Now, let's take a look at an example of a semantically correct webpage layout ⬇️
 

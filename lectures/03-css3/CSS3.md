@@ -17,7 +17,7 @@ In this module, we’ll start with a short tour of CSS. We’ll experiment with 
 ---
 #### 1. What is CSS?
 Or, How to Make Your Pages Look Pretty:
-	![[lectures/03-css3/CSS.png]]
+	![CSS](lectures/03-css3/CSS.png)
 	
 ---
 
@@ -37,7 +37,7 @@ One way is to use the `style` attribute on an HTML element:
 The above approach would work just fine if working with a small number of elements. But once you’re dealing with large pages with lots of moving pieces, it will _quickly_ become extremely tedious to apply a separate `style` attribute to each element. In software development, we are often interested in reducing repetition. We can achieve this through the use of **Cascading Style Sheets**, or **CSS** for short. **CSS** specifically deals with the layout and customization of HTML elements.
 
 ##### Creating a CSS rule
-![[lectures/03-css3/CSS-Rule.png]]
+![CSS Rule](lectures/03-css3/CSS-Rule.png)
 Let’s take a quick look at how we would take the previous example and apply the same style to the `p` elements using **CSS**:
 
 Loading a separate CSS file into an HTML page can be accomplished by placing a `link` element within the `head`, like so:
@@ -89,7 +89,7 @@ Some explanation wouldn’t hurt.
 `Line 6` adds a paragraph too. This time, with an `id` of `warning`  
 `Line 7` is pretty straightforward too. Can you figure that out? It says, _"Add a paragraph with a class of `info`"_  
 `Line 8` also adds a paragraph to the page but with a class of `primary`
-![[lectures/03-css3/css-rules.png]]
+![CSS Rules](lectures/03-css3/css-rules.png)
 1. The Element Selector | Type selector :
 	 A type selector matches a HTML element directly.
 	 Below is an example: 
@@ -112,7 +112,7 @@ Some explanation wouldn’t hurt.
 strong,em,.my-class,[lang] {  color: red;}
 ```
 
-![[lectures/03-css3/css-grouping.png]]
+![CSS Grouping](lectures/03-css3/css-grouping.png)
 ```html
 <div>
 	<h1>DIV: Header 1</h1>
@@ -159,9 +159,9 @@ section h2{
 
 ---
 
-![[lectures/03-css3/css-conflicting.png]]
+![CSS Conflicting](lectures/03-css3/css-conflicting.png)
 
-![[lectures/03-css3/css-inhritance.png]]
+![CSS Inheritance](lectures/03-css3/css-inhritance.png)
 
 ---
 #### 3. CSS Selectors - again!
@@ -201,7 +201,7 @@ In the example above `a:link` will target and style every `a` tag with an `
 	Finally, `a:active` will style the link, just when you click on it. When it is **active**
 	 ==The Order for Link Pseudo-Selectors==
 	 In summary, the order in which you define these link pseudo-selectors is important. It should follow the order LVHA i.e `:link`, `:visited`, `:hover`, and finally `:active`
-	 ![[lectures/03-css3/css-psoude-classes.png]]
+	 ![CSS Pseudo Classes](lectures/03-css3/css-psoude-classes.png)
 	- Other Pseudo-classes you should be aware of:
 		- First Child:
 			- In a much earlier example, we took a look at the parent child relationship in the html DOM. The selector, `first-child` says it all. It targets the first child of a specific element within the parent element.
@@ -231,7 +231,7 @@ div p:first-child{
 	color:red;
 }
 ```
- ![[lectures/03-css3/css- pseudo-classes -2.png]]
+ ![CSS Pseudo Classes 2](lectures/03-css3/css-pseudo-classes-2.png)
 	- Last Child:
 			- The `:last-child` pseudo-class selector is the opposite of `:first-child`. While `:first-child` targets the first child, `:last-child` targets the last child.
 ```css
@@ -293,7 +293,7 @@ color:red;
 }
 ```
 
-![[lectures/03-css3/css-pseudo-classes-3.png]]
+![CSS Pseudo Classes 3](lectures/03-css3/css-pseudo-classes-3.png)
 			The `nth-child` selector is smart enough to decipher the `odd` or `even` child elements.
 		- Exercise:
 			- **(a)** The `html` markup below should look familiar.
@@ -366,7 +366,7 @@ div .red-letters h1 p{
 #### 5. Selector Group Priorities:
 - Six priority group rules for selectors:
 	- To determine which selector has a higher priority, CSS divides the rules into six priority group from the highest to the lowest:
-![[lectures/03-css3/css-selector-group-priorities.png]]
+![CSS Selector Group Priorities](lectures/03-css3/css-selector-group-priorities.png)
 - 1. The **first priority** group contains rules with the `!important` modifier added to them. They override all rules that do not contain this modifier.
 	```css
 	p{
@@ -395,17 +395,17 @@ div .red-letters h1 p{
 7. Percentages (%)✔️
 8. vmin and vmax
 9. Viewport height (vh) and width (vw)✔️ 	 
-![[lectures/03-css3/css-Units.png]]
+![CSS Units](lectures/03-css3/css-Units.png)
 
 #### 7. The Box Model:
 
-![[lectures/03-css3/css-box-model-1.png]]
+![CSS Box Model 1](lectures/03-css3/css-box-model-1.png)
 	
-![[lectures/03-css3/css-box-model-2.png]]
+![CSS Box Model 2](lectures/03-css3/css-box-model-2.png)
 
-![[lectures/03-css3/css-box-model-example.png]]
+![CSS Box Model Example](lectures/03-css3/css-box-model-example.png)
 
-![[lectures/03-css3/css-height-width-calculation.png]]
+![CSS Height Width Calculation](lectures/03-css3/css-height-width-calculation.png)
 #### 8. Text:
 - Text Alignment + Sizing
 	- Use the `text-align` property to change the alignment of text within an element. `text-align` has four different values:
@@ -565,7 +565,7 @@ div .red-letters h1 p{
 	- So, what is a [gradient](https://webgradients.com/)?
 		Generally speaking, a gradient is a graduated blend between two or more colors . 
 		 `background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);`
-		![[lectures/03-css3/css-Gradients.png]]
+		![CSS Gradients](lectures/03-css3/css-Gradients.png)
 	- Types of Gradients:
 		- Linear gradients `linear-gradient(yellow, red)`
 		- Radial gradients  `linear-gradient(angle/direction, yellow, red)`
@@ -573,11 +573,11 @@ div .red-letters h1 p{
 		==use case== :
 		` background: linear-gradient(rgba(192,57,43 ,0.8), rgba(44,62,80 ,0.8)),url("http://i.imgur.com/tBhfy0L.jpg") 0% 0%/cover no-repeat `
 #### 9. Layout:
-![[lectures/03-css3/css-layout-1.png]]
+![CSS Layout 1](lectures/03-css3/css-layout-1.png)
 
-![[lectures/03-css3/css-page-layout-vs-component-layout.png]]
+![CSS Page Layout vs Component Layout](lectures/03-css3/css-page-layout-vs-component-layout.png)
 
-![[lectures/03-css3/css-layout-2.png]]
+![CSS Layout 2](lectures/03-css3/css-layout-2.png)
 #### 10. Flexbox:
  - Introduction to Flexbox:
 	 According to the specification, the flexbox model provides for an efficient way to layout, align, and distribute space among elements within your document, even when the viewport and the size of your elements is dynamic or unknown.
@@ -596,7 +596,7 @@ ul{
  In layman’s terms, the `flex-direction` property let’s you decide how the flex items are laid out. Either _horizontally_, _vertically_ or _reversed_ in both directions.
 		In layman’s terms again, the main-axis’ default direction feels like _“horizontal.”_ From left to right.
 		The cross-axis feels like “vertical.” From top to bottom.
-		![[lectures/03-css3/css-flex-container.png]]
+		![CSS Flex Container](lectures/03-css3/css-flex-container.png)
 	 2. Flex-wrap:
 ```css
 /*where ul represents a flex container*/
@@ -616,7 +616,7 @@ ul{
 }
 ```
 
-![[lectures/03-css3/css-flex-flow.png]]	
+![CSS Flex Flow](lectures/03-css3/css-flex-flow.png)	
 	4. Justify-content
 		Life’s really good with the Flexbox 😎.
 		 If you still doubt that, the `justify-content` property may convince you.
@@ -655,10 +655,10 @@ ul{
 			`Center` does just what you’d expect. It centers the flex items along the main axis.
 		- (iv) Space-between:
 			`Space-between` keeps the same space between each flex item.
-			![[lectures/03-css3/css-flex-2.png]]
+			![CSS Flex 2](lectures/03-css3/css-flex-2.png)
 		- (v) Space-around:
 			Finally, `space-around` keeps the same spacing around flex items.
-			![[lectures/03-css3/css-flex-3.png]]
+			![CSS Flex 3](lectures/03-css3/css-flex-3.png)
 	5. Align-items:
 		The `align-items` property is somewhat similar to the `justify-content` property.
 		`Align-items` can be set to any of these values: `flex-start || flex-end || center || stretch || baseline`.

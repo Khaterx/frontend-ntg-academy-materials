@@ -4,19 +4,22 @@
 		1. Application Layer
 		2. Presentation Layer
 		3. Session Layer
-		4. Network Layer
-		5. Data Link Layer
-		6. Physical Layer
+		4. Transport Layer
+		5. Network Layer
+		6. Data Link Layer
+		7. Physical Layer
 
-![[lectures/01-introduction-to-web/osi-model.png]]
+![OSI Model](lectures/01-introduction-to-web/osi-model.png)
 [The OSI Model: Understanding the Layered Approach to Network Communication](https://www.splunk.com/en_us/blog/learn/osi-model.html)
 
 ---
 2. How The Web Works - The Big Picture	
-![[lectures/01-introduction-to-web/HOW To Web Work.jpg]]
-	![[lectures/01-introduction-to-web/http-request-1.png]]![[lectures/01-introduction-to-web/http-request-1.png]]
-	![[lectures/01-introduction-to-web/http-request-2.png]]
-		![[lectures/01-introduction-to-web/http-request-3.png]]
+![How the Web Works](lectures/01-introduction-to-web/HOW%20To%20Web%20Work.jpg)
+![HTTP Request 1](lectures/01-introduction-to-web/http-request-1.png)
+
+![HTTP Request 2](lectures/01-introduction-to-web/http-request-2.png)
+
+![HTTP Request 3](lectures/01-introduction-to-web/http-request-3.png)
 
 
 
@@ -36,14 +39,14 @@
 		==Server-side languages include **JAVA**, **JavaScript**, **Python**, **PHP**, **Ruby**, and **C#**.==
 ---
 
-![[lectures/01-introduction-to-web/Front.jpg]]
+![Frontend vs Backend](lectures/01-introduction-to-web/Front.jpg)
 
 ---
 
 Web Backbone:
 
-![[lectures/01-introduction-to-web/web-backbone.png]]
+![Web Backbone](lectures/01-introduction-to-web/web-backbone.png)
 
-![[lectures/01-introduction-to-web/lamp-stack.png]]
+![LAMP Stack](lectures/01-introduction-to-web/lamp-stack.png)
 
-![[lectures/01-introduction-to-web/mren-stack.png]]
+![MREN Stack](lectures/01-introduction-to-web/mren-stack.png)

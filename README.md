@@ -10,24 +10,19 @@ This repository contains all teaching materials and code samples for the fronten
 
 ```text
 /ntg-frontend-academy-materials  
-├── /assets  
-│ ├── examples/ 
-├── /01-introduction-to-web  
-│ ├── lectures/    
-├── /02-html5  
-│ ├── lectures/  
-├── /03-css3  
-│ ├── lectures/  
-├── /04-javascript  
-│ ├── lectures/  
-├── /05-angular  
-│ ├── lectures/  
-├── /projects  
-│ └── final-project/  
-└── /resources  
-├── cheatsheets/  
-├── tools/  
-└── references/
+├── /assets
+│ └── /examples
+│   ├── /02-html
+│   ├── /03-css
+│   ├── /04-javascript
+│   ├── /05-angular
+├── /lectures
+│   ├── /01-introduction-to-web
+│   ├── /02-html5
+│   ├── /03-css3
+│   ├── /04-javascript
+│   ├── /05-angular
+└── README.md
 ```
 
 ## 📖 Course Modules
@@ -38,14 +33,14 @@ This repository contains all teaching materials and code samples for the fronten
 - HTTP/HTTPS protocols
 - Web browsers and developer tools
 
-### Module 2: [HTML5](lectures/02-HTML5/HTML5.md)
+### Module 2: [HTML5](lectures/02-html5/HTML5.md)
 - HTML document structure
 - Semantic HTML elements
 - Forms and input validation
 - Multimedia elements (audio, video)
 - Accessibility best practices
 
-### Module 3: [CSS3](CSS3.md)
+### Module 3: [CSS3](lectures/03-css3/CSS3.md)
 - CSS selectors and specificity
 - Box model and layout techniques
 - Flexbox and CSS Grid
