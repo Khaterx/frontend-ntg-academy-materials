@@ -9,17 +9,18 @@
 		6. Data Link Layer
 		7. Physical Layer
 
-![OSI Model](lectures/01-introduction-to-web/osi-model.png)
+![OSI Model](osi-model.png)
 [The OSI Model: Understanding the Layered Approach to Network Communication](https://www.splunk.com/en_us/blog/learn/osi-model.html)
 
 ---
 2. How The Web Works - The Big Picture	
-![How the Web Works](lectures/01-introduction-to-web/HOW%20To%20Web%20Work.jpg)
-![HTTP Request 1](lectures/01-introduction-to-web/http-request-1.png)
+![How the Web Works](HOW%20To%20Web%20Work.jpg)
 
-![HTTP Request 2](lectures/01-introduction-to-web/http-request-2.png)
+![HTTP Request 1](http-request-1.png)
 
-![HTTP Request 3](lectures/01-introduction-to-web/http-request-3.png)
+![HTTP Request 2](http-request-2.png)
+
+![HTTP Request 3](http-request-3.png)
 
 
 
@@ -45,8 +46,8 @@
 
 Web Backbone:
 
-![Web Backbone](lectures/01-introduction-to-web/web-backbone.png)
+![Web Backbone](web-backbone.png)
 
-![LAMP Stack](lectures/01-introduction-to-web/lamp-stack.png)
+![LAMP Stack](lamp-stack.png)
 
-![MREN Stack](lectures/01-introduction-to-web/mren-stack.png)
+![MREN Stack](mren-stack.png)

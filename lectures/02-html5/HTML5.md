@@ -23,7 +23,7 @@ content: `paragraphs, links, headings, images, video, etc`.
 
 ---
 - How Pages Use Structure  
-![HTML Structure](lectures/02-html5/Html-Structure.png)
+![HTML Structure](Html-Structure.png)
 
 ```HTML
 <!DOCTYPE...> This tag defines the document type and HTML version.
@@ -38,7 +38,7 @@ content: `paragraphs, links, headings, images, video, etc`.
 
 ---
 - Elements Structure
-![HTML Elements Structure](lectures/02-html5/Elements-Structure.png)
+![HTML Elements Structure](Elements-Structure.png)
 
 ---
 
@@ -108,7 +108,7 @@ The `href` _attribute_ refers to **Hypertext Reference**, whose value is a 
 - List Items (`<li>`)
 - Paragraphs (`<p>`)
 ==Inline elements==
-Inline elements, like the name suggests, do not take up the full width of a webpage and are generally _in-line_ with text content. Inline elements also do not start a new line when rendered in the browser. Examples of inline elements include:
+Inline elements, like the name suggests, do not take up the full width of a webpage and are generally _ in-line_ with text content. Inline elements also do not start a new line when rendered in the browser. Examples of inline elements include:
 - Anchors (`<a>`)
 - Images (`<img>`)
 - Bolding Text (`<strong>`)
@@ -140,7 +140,7 @@ In the example below, the `id` and `class` attributes are used to apply CSS 
 
 ##### 6. The img Element | Images :
 
-Use the `<img>` tag to embed an image into your web page with an `src` attribute that contains a file path to the image you want to be included. Use the `alt` attribute to provide _alternative text_ with a description of the image in case it doesn’t load, or is being read by a screen reader for people with disabilities.
+Use the `<img>` tag to embed an image into your web page with an `src` attribute that contains a file path to the image you want to be included. Use the `alt` attribute to provide _ alternative text_ with a description of the image in case it doesn’t load, or is being read by a screen reader for people with disabilities.
 
 ```HTML
 <!-- Incorrect img declaration --><img src="path/to/image/cat.jpg" alt="A cat"></img>
@@ -149,7 +149,7 @@ Use the `<img>` tag to embed an image into your web page with an `src` attri
 
 ##### 7. Exercise:
 In this exercise, you will need to do the following:
-- Add an **image** of the final result of the recipe from a search engine of your choice to your HTML page. Give this image an _alternative text_ label. Place this image under the **main level header**
+- Add an **image** of the final result of the recipe from a search engine of your choice to your HTML page. Give this image an _ alternative text_ label. Place this image under the **main level header**
 - Wrap the **main level header** and the **image** in a container. Give this container an `id` attribute, with the value `recipeTitle`
 - Group the elements comprising `Ingredients` and `Instructions` into separate containers
     - Give each container an `id` value; 
@@ -192,11 +192,11 @@ Now take a look at this block of code below ⬇️
 ```
 
 - Using Semantic HTML Tags Correctly 🤩
-![Semantic HTML Tags](lectures/02-html5/semantic-tags.png)
+![Semantic HTML Tags](semantic-tags.png)
 
 - Now, let's take a look at an example of a semantically correct webpage layout ⬇️
 
-![semanticchart2.jpeg](https://cdn.hashnode.com/res/hashnode/image/upload/v1630794997889/oKnWz5zR4.jpeg?auto=compress,format&format=webp)
+![semanticchart2.jpeg](semanticchart2.jpeg?auto=compress,format&format=webp)
 
 
 
