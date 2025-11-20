@@ -10,9 +10,9 @@
 2. How The Web Works - The Big Picture
 
 	![[HOW To Web Work 1.jpg]]
-	![[Pasted image 20240729104512.png]]
-		![[Pasted image 20240729104502.png]]
-		![[Pasted image 20240729104606.png]]
+	![[http-request-1.png]]
+		![[http-request-2.png]]
+		![[http-request-3.png]]
 
 
 
@@ -38,6 +38,6 @@
 
 Web Backbone:
 
-![[Pasted image 20240724104047.png]]
-![[Pasted image 20240729113927.png]]
-![[Pasted image 20240729114235.png]]
+![[web-backbone.png]]
+![[lamp-stack.png]]
+![[mren-stack.png]]

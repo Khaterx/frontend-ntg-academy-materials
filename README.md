@@ -32,20 +32,20 @@ This repository contains all teaching materials and code samples for the fronten
 
 ## 📖 Course Modules
 
-### Module 1: [Introduction to Web](./lectures/01-introduction-to-web/Introduction To Web Development.md)
+### Module 1: [Introduction to Web](Introduction To Web Development.md)
 - How the web works
 - Client-server architecture
 - HTTP/HTTPS protocols
 - Web browsers and developer tools
 
-### Module 2: [HTML5](./lectures/02-html5/HTML.md)
+### Module 2: [HTML5](HTML.md)
 - HTML document structure
 - Semantic HTML elements
 - Forms and input validation
 - Multimedia elements (audio, video)
 - Accessibility best practices
 
-### Module 3: [CSS3](./lectures/03-css3/CSS.md)
+### Module 3: [CSS3](CSS.md)
 - CSS selectors and specificity
 - Box model and layout techniques
 - Flexbox and CSS Grid
