@@ -8,14 +8,15 @@
 		5. Data Link Layer
 		6. Physical Layer
 
-![[osl-model.png]]
+![[lectures/01-introduction-to-web/osi-model.png]]
 [The OSI Model: Understanding the Layered Approach to Network Communication](https://www.splunk.com/en_us/blog/learn/osi-model.html)
 
 ---
-2. How The Web Works - The Big Picture	![[HOW To Web Work 1.jpg]]
-	![[http-request-1.png]]
-		![[http-request-2.png]]
-		![[http-request-3.png]]
+2. How The Web Works - The Big Picture	
+![[lectures/01-introduction-to-web/HOW To Web Work.jpg]]
+	![[lectures/01-introduction-to-web/http-request-1.png]]![[lectures/01-introduction-to-web/http-request-1.png]]
+	![[lectures/01-introduction-to-web/http-request-2.png]]
+		![[lectures/01-introduction-to-web/http-request-3.png]]
 
 
 
@@ -35,12 +36,14 @@
 		==Server-side languages include **JAVA**, **JavaScript**, **Python**, **PHP**, **Ruby**, and **C#**.==
 ---
 
-![[Front.jpg]]
+![[lectures/01-introduction-to-web/Front.jpg]]
 
 ---
 
 Web Backbone:
 
-![[web-backbone.png]]
-![[lamp-stack.png]]
-![[mren-stack.png]]
+![[lectures/01-introduction-to-web/web-backbone.png]]
+
+![[lectures/01-introduction-to-web/lamp-stack.png]]
+
+![[lectures/01-introduction-to-web/mren-stack.png]]

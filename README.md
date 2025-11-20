@@ -32,20 +32,20 @@ This repository contains all teaching materials and code samples for the fronten
 
 ## 📖 Course Modules
 
-### Module 1: [Introduction To Web Development](Introduction-To-Web-Development.md)
+### Module 1: [Introduction To Web Development](lectures/01-introduction-to-web/Introduction-To-Web-Development.md)
 - How the web works
 - Client-server architecture
 - HTTP/HTTPS protocols
 - Web browsers and developer tools
 
-### Module 2: [HTML5](HTML.md)
+### Module 2: [HTML5](lectures/02-HTML5/HTML5.md)
 - HTML document structure
 - Semantic HTML elements
 - Forms and input validation
 - Multimedia elements (audio, video)
 - Accessibility best practices
 
-### Module 3: [CSS3](CSS.md)
+### Module 3: [CSS3](CSS3.md)
 - CSS selectors and specificity
 - Box model and layout techniques
 - Flexbox and CSS Grid
@@ -144,14 +144,14 @@ See the `/resources/cheatsheets` folder for quick reference guides on:
 
 ## 📋 Course Schedule
 
-| Week  | Module              | Topics                                      |
-| ----- | ------------------- | ------------------------------------------- |
-| 1-2   | Introduction to Web | Web fundamentals, Git basics                |
-| 3-5   | HTML5               | Semantic HTML, forms, accessibility         |
-| 6-9   | CSS3                | Layouts, responsive design, animations      |
-| 10-14 | JavaScript          | Core concepts, DOM, async programming       |
-| 15-20 | Angular             | Framework fundamentals, components, routing |
-| 21-22 | Final Project       | Build a complete web application            |
+| Day | Module              | Topics                                      |
+| --- | ------------------- | ------------------------------------------- |
+| 1   | Introduction to Web | Web fundamentals, Git basics                |
+| 1   | HTML5               | Semantic HTML, forms, accessibility         |
+| 1   | CSS3                | Layouts, responsive design, animations      |
+| 2   | JavaScript          | Core concepts, DOM, async programming       |
+| 6   | Angular             | Framework fundamentals, components, routing |
+| -   | Final Project       | Build a complete web application            |
 
 ## 🎯 Learning Outcomes
 
