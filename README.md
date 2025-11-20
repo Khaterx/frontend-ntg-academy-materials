@@ -32,7 +32,7 @@ This repository contains all teaching materials and code samples for the fronten
 
 ## 📖 Course Modules
 
-### Module 1: [Introduction to Web](Introduction To Web Development.md)
+### Module 1: [Introduction To Web Development](Introduction-To-Web-Development.md)
 - How the web works
 - Client-server architecture
 - HTTP/HTTPS protocols
