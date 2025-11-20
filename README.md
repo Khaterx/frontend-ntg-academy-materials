@@ -10,26 +10,18 @@ This repository contains all teaching materials and code samples for the fronten
 
 ```text
 /ntg-frontend-academy-materials  
+├── /assets  
+│ ├── examples/ 
 ├── /01-introduction-to-web  
-│ ├── lectures/  
-│ ├── examples/  
-│ └── assignments/  
+│ ├── lectures/    
 ├── /02-html5  
 │ ├── lectures/  
-│ ├── examples/  
-│ └── assignments/  
 ├── /03-css3  
 │ ├── lectures/  
-│ ├── examples/  
-│ └── assignments/  
 ├── /04-javascript  
 │ ├── lectures/  
-│ ├── examples/  
-│ └── assignments/  
 ├── /05-angular  
 │ ├── lectures/  
-│ ├── examples/  
-│ └── assignments/  
 ├── /projects  
 │ └── final-project/  
 └── /resources  
@@ -40,26 +32,24 @@ This repository contains all teaching materials and code samples for the fronten
 
 ## 📖 Course Modules
 
-### Module 1: Introduction to Web
+### Module 1: [Introduction to Web](./lectures/01-introduction-to-web/Introduction To Web Development.md)
 - How the web works
 - Client-server architecture
 - HTTP/HTTPS protocols
 - Web browsers and developer tools
 
-### Module 2: HTML5
+### Module 2: [HTML5](./lectures/02-html5/HTML.md)
 - HTML document structure
 - Semantic HTML elements
 - Forms and input validation
 - Multimedia elements (audio, video)
 - Accessibility best practices
 
-### Module 3: CSS3
+### Module 3: [CSS3](./lectures/03-css3/CSS.md)
 - CSS selectors and specificity
 - Box model and layout techniques
 - Flexbox and CSS Grid
-- Responsive design and media queries
-- CSS animations and transitions
-- Modern CSS features
+- Bootstrap library
 
 ### Module 4: JavaScript
 - JavaScript fundamentals and ES6+ syntax
@@ -95,7 +85,7 @@ Before starting the course, make sure you have the following installed:
 
 ```bash
 git glone https://github.com/Khaterx/frontend-ntg-academy-materials.git
-cd ntg-frontend-academy-materials
+cd frontend-ntg-academy-materials
 ```
 
 ### Running Examples
@@ -124,6 +114,8 @@ ng serve
 - Auto Rename Tag
 - Auto Close Tag
 - HTML CSS Support
+- CSS-auto-prefix
+- Angular Language Service
 
 ### Development Tools
 - [Chrome DevTools](https://developer.chrome.com/docs/devtools/)

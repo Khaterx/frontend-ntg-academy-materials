@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="description" content="any" />
+    <meta name="rebots" content="index,follow" />
+    <base href="www.google.com" />
+    <meta charset="UTF-8" />
+    <link srcset="print.html" media="print">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src=""></script>
+
+    <style>
+
+.header{
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.nav-items{
+    display: flex;
+    gap: 20px;
+}
+
+.nav-items li{
+    list-style: none;
+}
+
+      .nav-item::marker{
+        content: '🐱';
+      }
+
+     li::marker{
+        content: '🔻';
+      } 
+
+
+    </style>
+    <title>HTML</title>
+  </head>
+  <body>
+    <header class="header">
+        <nav class="nav-items">
+            <ul>
+                <li>LOGO</li>
+                <li>HOME</li>
+                <li>ABOUT</li>
+                <li>CONTACT</li>
+            </ul> 
+        </nav>
+    </header>
+    <h2>HTML 👋</h2>
+    <h3>HTML 👋</h3>
+    <h4>HTML 👋</h4>
+    <h5>HTML 👋</h5>
+    <h6>HTML 👋</h6>
+
+    <p>Hello</p>
+    <span>span</span>
+
+    <p class="text">
+      Lorem ipsum <strong>BOW</strong> sit amet consectetur
+      <em>BOW</em>adipisicing elit. Quis, accusantium.'
+    </p>
+    <p class="text">
+      Lorem ipsum sit amet <i>BOW</i>consectetur <b>BOW</b>adipisicing elit.
+      Quis, accusantium.'
+    </p>
+
+    <code id="js"> console.log('Hello from Dark Side👋') </code>
+    <pre id="js">
+            console.log('Hello from Dark Side👋')
+            hello
+        </pre
+    >
+    <q>
+      <blockquote>Lorem ipsum dolor &nbsp; sit amet.</blockquote>
+    </q>
+
+    <ol type="I">
+      <li>task 1</li>
+      <li>task 2</li>
+      <li>task 3</li>
+    </ol>
+    <ul type="square" class="nav-item">
+      <li>
+        task 1
+        <ul>
+          <li class="nav-item">HTML</li>
+          <li class="nav-item">CSS</li>
+          <li class="nav-item">JS</li>
+        </ul>
+      </li>
+      <li>task 2</li>
+      <li>task 3</li>
+    </ul>
+    <dl>
+      <dt>Web tech</dt>
+      <dd>HTML</dd>
+      <dd>CSS</dd>
+      <dd>JS</dd>
+    </dl>
+
+    <a href="https://google.com" target="_self">ClickME😁</a>
+
+    <div class="container">
+      <h2>WEB</h2>
+      <p>WEB</p>
+    </div>
+
+    <nav class="nav">
+      <ul>
+        <li>LOGO</li>
+        <li>HOME</li>
+        <li>ABOUT</li>
+        <li>CONTACT</li>
+      </ul>
+    </nav>
+    <section class="blog">
+      <article>
+        <header><p>NTG</p></header>
+        <h2>WEB</h2>
+        <p>WEB</p>
+        <footer>test</footer>
+      </article>
+      <article>
+        <header><p>NTG</p></header>
+        <h2>WEB</h2>
+        <p>WEB</p>
+        <footer>test</footer>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea inventore, perferendis alias et atque laudantium harum quasi aperiam nihil provident asperiores aut sed, minus magnam veritatis ducimus rerum nulla dolore facere deleniti cum! Quisquam, totam sequi asperiores, sit ex sint expedita aliquid corporis atque facere repudiandae voluptates aspernatur laboriosam dolores reprehenderit? Minima, commodi voluptatibus quisquam quae inventore dignissimos facere natus ipsa culpa totam, officia laborum dolorem ducimus iste! Eum, illo natus, temporibus laboriosam quasi architecto corrupti consequatur possimus voluptas quod dicta nostrum ullam deserunt, recusandae deleniti libero! Reiciendis enim consequatur dolor exercitationem iste facilis fuga sed, dolores sit consectetur esse recusandae possimus explicabo earum quisquam fugit deleniti repellat atque quas voluptatibus culpa temporibus architecto pariatur ipsam! Consequuntur, odio? Nulla officiis quis quia,
+        <aside><q>hello from dark side</q></aside>
+            eos consequuntur, minima officia assumenda voluptatum nemo nostrum a eius! Nulla omnis magnam dignissimos sequi rerum sunt quisquam, aut aspernatur delectus fugiat recusandae cupiditate quod natus! Voluptas, aliquam.</p>
+      </article>
+    </section>
+
+    <form action="/test" method="POST" class="form form-controller">
+        <!-- <label for="name">Name</label> -->
+         <p>Name</p>
+        <input type="" name="name" id="name">
+        <br><hr>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+        <br><hr>
+        <label for="password">Password</label>
+        <input type="password" name="password" required value="youpassword" placeholder=""  pattern="^[0-9]{5,9}[a-zA-Z]{5-9}$"   id="password">
+        <br><hr>
+        <textarea name="" id="" ></textarea>
+        <input type="submit">
+        <!-- <button type="submit">Submit</button> -->
+    </form>
+
+    <img src="" alt="Random Image" srcset="https://picsum.photos/200/300">
+    
+
+
+    <table>
+      <caption>Card</caption>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> <img src="" alt="Random Image" srcset="https://picsum.photos/200/300" onerror="this.onerror=null;
+          this.src='https://picsum.photos/200/300'"></td>
+          <td>100$</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </body>
+</html>
