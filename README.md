@@ -27,32 +27,31 @@ This repository contains all teaching materials and code samples for the fronten
 
 ## 📖 Course Modules
 
-### Module 1: [Introduction To Web Development](lectures/01-introduction-to-web/Introduction-To-Web-Development.md)
+### Module 1: [Introduction To Web Development](Introduction-To-Web-Development.md)
 - How the web works
 - Client-server architecture
 - HTTP/HTTPS protocols
 - Web browsers and developer tools
 
-### Module 2: [HTML5](lectures/02-html5/HTML5.md)
+### Module 2: [HTML5](HTML5.md)
 - HTML document structure
 - Semantic HTML elements
 - Forms and input validation
 - Multimedia elements (audio, video)
 - Accessibility best practices
 
-### Module 3: [CSS3](lectures/03-css3/CSS3.md)
+### Module 3: [CSS3](CSS3.md)
 - CSS selectors and specificity
 - Box model and layout techniques
 - Flexbox and CSS Grid
 - Bootstrap library
 
-### Module 4: JavaScript
+### Module 4: [JavaScript](JavaScript.md)
 - JavaScript fundamentals and ES6+ syntax
 - DOM manipulation
 - Event handling
 - Asynchronous JavaScript (Promises, async/await)
 - Fetch API and working with REST APIs
-- JavaScript modules
 
 ### Module 5: Angular
 - Angular architecture and components
@@ -159,6 +158,44 @@ By the end of this course, students will be able to:
 - Create single-page applications using Angular framework
 - Follow web development best practices and coding standards
 
+---
+## Tasks
+
+| No  | Task                                                                                                                                                | Estimated Time | Delivery Date |
+| :-: | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :------------: | :-----------: |
+|  1  | Requesting camera and microphone access from the user using the browser APIs                                                                        |      2 h       |  17-11-2025   |
+|  2  | Building a personal portfolio website using **HTML** and **CSS**                                                                                    |      4 h       |  23-11-2025   |
+|  3  | Creating a calculator application using **JavaScript DOM** manipulation                                                                             |      2 h       |  25-11-2025   |
+|  4  | Handling HTTP requests (`GET`, `POST`, `PUT`, `DELETE`) using **JavaScript DOM** only, without Fetch, Promises, or third-party libraries like Axios |      5 h       |  26-11-2025   |
+
+## Evaluation Guidelines
+
+All tasks in this course will be evaluated using the following general criteria:
+
+1. **Functionality (40%)**  
+   - The task meets the stated requirements and behaves as expected.  
+   - There are no critical errors that prevent normal use.
+
+2. **Code Quality (25%)**  
+   - Code is readable, well-structured, and consistently formatted.  
+   - Names (files, variables, functions) are meaningful and self-explanatory.
+
+3. **User Experience & Presentation (15%)**  
+   - The interface is clear, usable, and visually organized.  
+   - Inputs, outputs, and feedback messages are easy to understand.
+
+4. **Technical Requirements (10%)**  
+   - The solution respects any constraints mentioned in the task description  
+     (for example: allowed tools/technologies, browser APIs, or patterns).  
+
+5. **Documentation & Submission (10%)**  
+   - Basic instructions on how to run and test the task are provided (README or comments).  
+   - The work is submitted correctly and on time (proper folder, naming, and version control usage).
+
+---
 ## 📜 License
 
 This educational material is provided for NTG Academy students.
+
+---
+⭐ Star this repository if you find it helpful!

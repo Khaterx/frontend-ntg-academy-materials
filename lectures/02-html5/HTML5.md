@@ -224,3 +224,5 @@ Now take a look at this block of code below ⬇️
 	- https://web.dev/learn/html `English`
 	- https://www.youtube.com/playlist?list=PLDoPjvoNmBAw_t_XWUFbBX-c9MafPk9ji  `Arabic`
 	- https://youtu.be/q3yFo-t1ykw?feature=shared `Arabic`
+	- https://blog.addpipe.com/camera-and-microphone-access-in-cross-oirigin-iframes-with-feature-policy/
+	- 

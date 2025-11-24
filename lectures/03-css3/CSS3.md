@@ -17,8 +17,8 @@ In this module, we’ll start with a short tour of CSS. We’ll experiment with 
 ---
 #### 1. What is CSS?
 Or, How to Make Your Pages Look Pretty:
-	![CSS](CSS.png)
-	
+![CSS](CSS.png)
+
 ---
 
 How can we customize the look and feel of our content?

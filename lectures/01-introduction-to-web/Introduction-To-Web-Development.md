@@ -14,7 +14,7 @@
 
 ---
 2. How The Web Works - The Big Picture	
-![How the Web Works](HOW%20To%20Web%20Work.jpg)
+![How the Web Works](Internship_Syllabus/Frontend-Academy-Materials/lectures/01-introduction-to-web/HOW%20To%20Web%20Work.jpg)
 
 ![HTTP Request 1](http-request-1.png)
 
@@ -40,7 +40,7 @@
 		==Server-side languages include **JAVA**, **JavaScript**, **Python**, **PHP**, **Ruby**, and **C#**.==
 ---
 
-![Frontend vs Backend](lectures/01-introduction-to-web/Front.jpg)
+![Frontend vs Backend](Front.jpg)
 
 ---
 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="calculator.js"></script>
+    <script defer src="logic.js"></script>
+    <title>JavaScript</title>
+  </head>
+  <body>
+    <h1
+      class="title"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fcf817;
+        font-family: Arial, sans-serif;
+        color: #333;
+        height: 100px;
+      "
+    >
+      Hello, JavaScript!
+    </h1>
+
+    <section
+      class="conatiner"
+      style="
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <input
+        type="text"
+        id="input1"
+        placeholder="Type something..."
+        value="5"
+      />
+      <input
+        class="input2"
+        type="text"
+        id="input2"
+        placeholder="Type something else..."
+      />
+    </section>
+
+    <section
+      class="buttons"
+      style="
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+        margin-top: 20px;
+      "
+    >
+      <button id="btn-add" type="button" style="width: 100px; height: 50px">
+        +
+      </button>
+      <button
+        id="btn-multiply"
+        type="button"
+        style="width: 100px; height: 50px"
+      >
+        *
+      </button>
+      <button
+        id="btn-subtract"
+        type="button"
+        style="width: 100px; height: 50px"
+      >
+        -
+      </button>
+      <button id="btn-divide" type="button" style="width: 100px; height: 50px">
+        /
+      </button>
+    </section>
+
+    <section
+      class="result"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        font-size: 24px;
+        font-weight: bold;
+      "
+    >
+      <div id="result">--</div>
+    </section>
+  </body>
+</html>
