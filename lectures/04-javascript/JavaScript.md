@@ -50,4 +50,4 @@ Of course, you can add as many scripts as you want and also use both relative, a
 
 We use variables to store values, which can be anything from a username, an address or an item from our e-commerce site, for example.
 
-Prior to ES6 (ES2015) the way we would declare a variable was:
+![[JavaScript-in-action.pdf]]
