@@ -53,7 +53,7 @@ This repository contains all teaching materials and code samples for the fronten
 - Asynchronous JavaScript (Promises, async/await)
 - Fetch API and working with REST APIs
 
-### Module 5: Angular
+### Module 5: [Angular](Angular.md)
 - Angular architecture and components
 - TypeScript basics
 - Data binding and directives
