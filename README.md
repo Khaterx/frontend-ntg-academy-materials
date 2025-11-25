@@ -163,10 +163,12 @@ By the end of this course, students will be able to:
 
 | No  | Task                                                                                                                                                | Estimated Time | Delivery Date |
 | :-: | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :------------: | :-----------: |
-|  1  | Requesting camera and microphone access from the user using the browser APIs                                                                        |      2 h       |  17-11-2025   |
-|  2  | Building a personal portfolio website using **HTML** and **CSS**                                                                                    |      4 h       |  23-11-2025   |
-|  3  | Creating a calculator application using **JavaScript DOM** manipulation                                                                             |      2 h       |  25-11-2025   |
-|  4  | Handling HTTP requests (`GET`, `POST`, `PUT`, `DELETE`) using **JavaScript DOM** only, without Fetch, Promises, or third-party libraries like Axios |      5 h       |  26-11-2025   |
+|  1  | Requesting camera and microphone access from the user using the browser APIs                                                                        |      2 h       |     17-11     |
+|  2  | Building a personal portfolio website using **HTML** and **CSS**                                                                                    |      4 h       |     23-11     |
+|  3  | Creating a calculator application using **JavaScript DOM** manipulation                                                                             |      2 h       |     25-11     |
+|  4  | Handling HTTP requests (`GET`, `POST`, `PUT`, `DELETE`) using **JavaScript DOM** only, without Fetch, Promises, or third-party libraries like Axios |      5 h       |     26-11     |
+|  5  | Building a personal portfolio website using angular                                                                                                 |       3h       |     25-11     |
+
 
 ## Evaluation Guidelines
 
