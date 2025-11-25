@@ -70,7 +70,8 @@ ng g c home
 ---
 ### SPA Technique 
 #### How Do Traditional Web Applications Work?
- ![Traditional-Web-App](Internship_Syllabus/Frontend-Academy-Materials/lectures/05-angular/Traditional-Web-App.gif)
+ 
+ ![Traditional-Web-App](Traditional-Web-App.gif)
  When you click on a link in a traditional web app, here’s what happens:
 
 1. The browser makes an HTTP request to the server.
@@ -89,7 +90,7 @@ ng g c home
 
 The general idea is that we **control the number of requests sent to the server** to manage the number of request and the number of refreshes that occur, which is achieved by the server sending each HTML file once with the first request.
 
-![SPA-Approach](Internship_Syllabus/Frontend-Academy-Materials/lectures/05-angular/SPA-Approach.gif)
+![SPA-Approach](SPA-Approach.gif)
 
 SPAs offer a modern, smooth, and efficient way of building web applications, especially when using Angular. With features like client-side routing, lazy loading, and operators for handling asynchronous events, Angular empowers developers to create high-performing SPAs.
 
@@ -122,8 +123,8 @@ SPAs offer a modern, smooth, and efficient way of building web applications, esp
 #### Description
 Components are the building blocks of Angular applications, encapsulating the template, logic, and styles to define a self-contained unit of the user interface.
 
-[[angular-structure-files]]
-![angular-structure-files](Internship_Syllabus/Frontend-Academy-Materials/lectures/05-angular/angular-structure-files.png)
+
+![angular-structure-files](angular-structure-files.png)
 Based on `first-app` project, here's the structure breakdown:
 #### Root-level files
 
@@ -276,14 +277,14 @@ In `app.html`, add `<router-outlet></router-outlet>` to render routed components
 ### Angular Architecture
 
 Angular follows a **component-based architecture** with clear separation of concerns. Here's the conceptual model and how it maps to your project.
-[[angular-architecture]]  | [[angular-crash-course-diagrams|angular-crash-course-diagrams]]
+
 ####   **component-based architecture**
 - *Component tree:*
-![component-based](Internship_Syllabus/Frontend-Academy-Materials/lectures/05-angular/component-based.png)
+![component-based](component-based.png)
 
 - **Example**
 
-![components.png](Internship_Syllabus/Frontend-Academy-Materials/lectures/05-angular/components.png)
+![components.png](components.png)
 
 - **Component Core Blocks**
 **Structure:**
@@ -292,11 +293,11 @@ Angular follows a **component-based architecture** with clear separation of co
 - **Styles** – CSS (scoped to component)
 - **Metadata** – `@Component` decorator
 
-![component-arch](Internship_Syllabus/Frontend-Academy-Materials/lectures/05-angular/component-arch.png)
+![component-arch](component-arch.png)
 
 - **Example**
 
-![component-content](Internship_Syllabus/Frontend-Academy-Materials/lectures/05-angular/component-content.png)
+![component-content](component-content.png)
 
 #### Component: 
 - Scalable
@@ -349,7 +350,7 @@ ng add @fortawesome/angular-fontawesome@<version>
 [Daisyui](https://daisyui.com/docs/install/)
 
 ---
-## Session-4
+## Session-6
 
 - Template
 - Interpolation
@@ -358,8 +359,9 @@ ng add @fortawesome/angular-fontawesome@<version>
 - Pipes
 ---
 ### Templates
-inline, linked
+Inline, linked
 
+- Inline
 ```ts
 import { Component } from '@angular/core';
 import { CurrencyPipe, DatePipe, TitleCasePipe } from '@angular/common';
@@ -383,8 +385,18 @@ export class ShoppingCartComponent {
 }
 ```
 
+- linked
+```ts
+@Component({
+  selector: 'app-home',
+  imports: [],
+  templateUrl: './home.html',
+  styleUrl: './home.css',
+})
+export class Home {
 
-
+}
+```
 ---
 ### Interpolation
 ```ts
@@ -399,11 +411,11 @@ title : string = 'Hello from dark side.'
 ### Data Binding
 - one way (Property binding, Event binding, Interpolation) 
 - two way `[(ngModel)]="''"` | banana in a box
-![Data-binding](Internship_Syllabus/Frontend-Academy-Materials/lectures/05-angular/Data-binding.png)
+![Data-binding](Data-binding.png)
 ---
 ### Directives
 
-![Directives](Internship_Syllabus/Frontend-Academy-Materials/lectures/05-angular/Directives.png)
+![Directives](Directives.png)
 
 The different types of Angular directives are as follows:
 
@@ -686,10 +698,9 @@ export class AppModule { }
 ### Pipes
 - **Pipes** transform data in templates for display purposes, such as formatting dates, numbers, or filtering and sorting lists.
 
-![Pipes](Internship_Syllabus/Frontend-Academy-Materials/lectures/05-angular/Pipes.png)
+![Pipes](Pipes.png)
 
 [Pipe](https://angular.dev/guide/templates/pipes)
-
 
 
 
