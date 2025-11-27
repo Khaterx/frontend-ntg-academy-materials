@@ -1,11 +1,11 @@
 # Angular Framework Essentials
 ## Syllabus
-- [ ] Introduction to **Angular**
-- [ ] let's Build your first Angular app
-- [ ] Angular Structure project
-- [ ] Components
-- [ ] Templates, Interpolation and Directives
-- [ ] Data Binding & Pipes
+- [x] Introduction to **Angular** ✅ 2025-11-24
+- [x] let's Build your first Angular app ✅ 2025-11-24
+- [x] Angular Structure project ✅ 2025-11-24
+- [x] Components ✅ 2025-11-27
+- [x] Templates, Interpolation and Directives ✅ 2025-11-27
+- [x] Data Binding & Pipes ✅ 2025-11-27
 - [ ] Nested Components
 - [ ] Component lifecycle
 - [ ] Services & Dependency Injection

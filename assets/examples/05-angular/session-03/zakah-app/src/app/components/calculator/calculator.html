@@ -1,0 +1,56 @@
+<div class="container flex justify-center align-middle mt-5 lg:flex-row flex-col gap-5">
+  @for(item of product; track item.id;){
+  <div class="card bg-base-100 w-96 shadow-sm">
+    <figure>
+      <img [src]="imageUrl()" alt="Shoes" />
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title">{{ item.productName }}</h2>
+      <p>
+        A card component has a figure, a body part, and inside body there are title and actions
+        parts
+      </p>
+
+      @switch(isAvailable() != null){
+         @case(item.quantity > 50){
+      <span class="badge badge-primary">In Stock</span>
+      } @case(item.quantity > 20){
+      <span class="badge badge-success">In Stock</span>
+      } @case(item.quantity > 0 && item.quantity <= 20){
+      <span class="badge badge-warning">Low Stock</span>
+      } @default{
+      <span class="badge badge-error">Out of Stock</span>
+      }}
+
+      <div class="card-actions justify-end">
+        @if(item.quantity > 0){
+        <button class="btn btn-primary">Buy Now</button>
+        } @else{
+        <button class="btn btn-disabled">Out of Stock</button>
+        }
+      </div>
+    </div>
+  </div>
+  }@empty {
+  <h3>loading.....</h3>
+  }
+
+  <!-- Old directives -->
+  <!--
+  <div class="card bg-base-100 w-96 shadow-sm" *ngFor="let item of product;">
+    <figure>
+      <img [src]="imageUrl()" alt="Shoes" />
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title">{{item.productName}}</h2>
+      <p>
+        A card component has a figure, a body part, and inside body there are title and actions
+        parts
+      </p>
+
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary" *ngIf="item.quantity > 0">Buy Now</button>
+      </div>
+    </div>
+  </div> -->
+</div>
