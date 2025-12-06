@@ -6,10 +6,10 @@
 - [x] Components ✅ 2025-11-27
 - [x] Templates, Interpolation and Directives ✅ 2025-11-27
 - [x] Data Binding & Pipes ✅ 2025-11-27
-- [ ] Nested Components
-- [ ] Component lifecycle
-- [ ] Services & Dependency Injection
-- [ ] Retrieving Data using HTTP
+- [x] Nested Components ✅ 2025-12-03
+- [x] Component lifecycle ✅ 2025-12-03
+- [x] Services & Dependency Injection ✅ 2025-12-03
+- [x] Retrieving Data using HTTP ✅ 2025-12-03
 - [ ] Dealing with Forms
 - [ ] Navigation and Routing
 
@@ -702,11 +702,987 @@ export class AppModule { }
 
 [Pipe](https://angular.dev/guide/templates/pipes)
 
+---
 
 
+## Session-7
+
+- Services & DI
+- Routing
+- Nested Routing
+---
+### 1. Services & Dependency Injection
+
+**Concepts to cover:**
+
+- What a service is: a class that holds reusable logic (data access, calculations, shared state) instead of putting everything inside components.  
+- Why services: separation of concerns, easier testing, and sharing logic across multiple components.  
+- Dependency Injection (DI): Angular’s way to create and provide instances of services to components and other services.  
+- Providers and scopes:  
+  - `providedIn: 'root'` (singleton app-wide).  
+  - Providing in a component (new instance per component subtree).  
+
+**Creating a Service:**
+```typescript
+// user.service.ts
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'  // Singleton service available app-wide
+})
+export class UserService {
+  private users = [
+    { id: 1, name: 'Ahmed', email: 'ahmed@example.com' },
+    { id: 2, name: 'Sara', email: 'sara@example.com' },
+    { id: 3, name: 'Mohamed', email: 'mohamed@example.com' }
+  ];
+
+  getUsers() {
+    return this.users;
+  }
+
+  getUserById(id: number) {
+    return this.users.find(user => user.id === id);
+  }
+}
+```
+**Injecting the Service:**
+
+```typescript
+// user-list.component.ts
+import { Component, OnInit } from '@angular/core';
+import { UserService } from './user.service';
+
+@Component({
+  selector: 'app-user-list',
+  template: `
+    <h2>Users</h2>
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.name }} - {{ user.email }}
+      </li>
+    </ul>
+  `
+})
+export class UserListComponent implements OnInit {
+  users: any[] = [];
+
+  // Inject service via constructor
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.users = this.userService.getUsers();
+  }
+}
+```
+**Modern inject() Function (Angular 14+)**
+
+```typescript
+import { Component, OnInit, inject } from '@angular/core';
+import { UserService } from './user.service';
+
+@Component({
+  selector: 'app-user-list',
+  template: `...`
+})
+export class UserListComponent implements OnInit {
+  // Field initializer injection
+  private userService = inject(UserService);
+  users: any[] = [];
+
+  ngOnInit() {
+    this.users = this.userService.getUsers();
+  }
+}
+```
+  
+**Exercise idea:**
+
+- Create a `UserService` that returns a list of users (hardcoded).  
+- Inject it into two different components and display the same data.  
+- Ask: “What changed if we move the provider from root to one component?”  
+
+***
+
+### 2. Retrieving Data Using HTTP
+
+**Concepts to cover:**
+
+- Why using HTTP in Angular: consuming REST APIs for CRUD operations.  
+- `HttpClientModule`: where to import it and why it must be in the app (or core) module.  
+- `HttpClient` service: making `GET`, `POST`, `PUT`, `DELETE` calls.  
+- Observables: HTTP methods return Observables; basic `subscribe` usage.  
+
+
+![angular-service.png](angular-service.png)
+
+
+**Setup HttpClient:**
+
+```typescript
+// app.config.ts (standalone) or app.module.ts
+import { provideHttpClient } from '@angular/common/http';
+
+export const appConfig = {
+  providers: [
+    provideHttpClient()
+  ]
+};
+
+```
+
+**Service with HTTP Calls:**
+
+```typescript
+// product.service.ts
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductService {
+  private http = inject(HttpClient);
+  private apiUrl = 'https://api.example.com/products';
+
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrl);
+  }
+
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  }
+
+  createProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.apiUrl, product);
+  }
+
+  updateProduct(id: number, product: Product): Observable<Product> {
+    return this.http.put<Product>(`${this.apiUrl}/${id}`, product);
+  }
+
+  deleteProduct(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+}
+```
+
+**Component Consuming HTTP Service:**
+
+```typescript
+// product-list.component.ts
+import { Component, OnInit, inject } from '@angular/core';
+import { ProductService, Product } from './product.service';
+
+@Component({
+  selector: 'app-product-list',
+  template: `
+    <h2>Products</h2>
+    
+    @if (loading) {
+      <div class="spinner">Loading products...</div>
+    }
+    
+    @if (error) {
+      <div class="error">{{ error }}</div>
+    }
+    
+    @if (!loading && !error) {
+      @if (products.length > 0) {
+        <ul>
+          @for (product of products; track product.id) {
+            <li>
+              {{ product.name }} - {{ product.price | currency }}
+              @if (product.category) {
+                <span class="badge">{{ product.category }}</span>
+              }
+            </li>
+          }
+        </ul>
+      } @else {
+        <p>No products available</p>
+      }
+    }
+  `
+})
+export class ProductListComponent implements OnInit {
+  private productService = inject(ProductService);
+  
+  products: Product[] = [];
+  loading = false;
+  error = '';
+
+  ngOnInit() {
+    this.loading = true;
+    this.productService.getProducts().subscribe({
+      next: (data) => {
+        this.products = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.error = 'Failed to load products';
+        this.loading = false;
+        console.error(err);
+      }
+    });
+  }
+}
+
+```
+
+**Exercise idea:**
+
+- Use a public mock API (or a simple local JSON server) to retrieve items.  
+- Have students display a loading indicator, data list, and simple error message.  
+
+***
+
+### 3. Routing
+
+**Concepts to cover:**
+
+- SPA navigation: how Angular changes the view without reloading the whole page.  
+- Basic route configuration: `path`, `component`, and a simple route array.  
+- RouterModule: importing in the root routing module.  
+- RouterLink and RouterOutlet:  
+  - `<router-outlet>` as the placeholder for routed components.  
+  - `[routerLink]` and `routerLinkActive` in templates.  
+
+**Route Configuration:**
+
+```typescript
+// app.routes.ts
+import { Routes } from '@angular/router';
+import { HomeComponent } from './home.component';
+import { ProductsComponent } from './products.component';
+import { AboutComponent } from './about.component';
+
+export const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'products/:id', component: ProductDetailComponent },
+  { path: 'about', component: AboutComponent },
+  { path: '**', redirectTo: '/home' }  // Wildcard for 404
+];
+```
+**App Component with Router Outlet:**
+
+```typescript
+// app.component.ts
+import { Component } from '@angular/core';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  template: `
+    <nav>
+      <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
+      <a [routerLink]="['/products']" routerLinkActive="active">Products</a>
+      <a [routerLink]="['/about']" routerLinkActive="active">About</a>
+    </nav>
+    
+    <router-outlet></router-outlet>
+  `,
+  styles: [`
+    nav a { margin: 0 10px; }
+    .active { font-weight: bold; color: blue; }
+  `]
+})
+export class AppComponent {}
+```
+**Programmatic Navigation:**
+
+```typescript
+// product-list.component.ts
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-product-list',
+  template: `
+    <button (click)="viewProduct(123)">View Product 123</button>
+  `
+})
+export class ProductListComponent {
+  private router = inject(Router);
+
+  viewProduct(id: number) {
+    this.router.navigate(['/products', id]);
+  }
+}
+```
+
+**Exercise idea:**
+
+- Build a small app with a navbar and three pages.  
+- Each menu item should navigate without full reload.  
+- Show current route in the template using `routerLinkActive`.  
+
+***
+
+### 4. Nested Routing
+
+**Concepts to cover:**
+
+- Why nested routes: structuring “sections” of the app (e.g. products area) with child views.  
+- Child routes and secondary `<router-outlet>` inside a feature component.  
+- Example use case:  
+  - `/products` → products list.  
+  - `/products/:id` → product detail rendered inside the products area.  
+
+Parent Route with Children:
+
+```typescript
+// app.routes.ts
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: 'products',
+    component: ProductsLayoutComponent,
+    children: [
+      { path: '', component: ProductListComponent },
+      { path: ':id', component: ProductDetailComponent }
+    ]
+  }
+];
+```
+Parent Component with Nested Outlet:
+
+```typescript
+// products-layout.component.ts
+import { Component } from '@angular/core';
+import { RouterOutlet, RouterLink } from '@angular/router';
+
+@Component({
+  selector: 'app-products-layout',
+  standalone: true,
+  imports: [RouterOutlet, RouterLink],
+  template: `
+    <div class="products-container">
+      <aside>
+        <h3>Product Categories</h3>
+        <ul>
+          <li><a [routerLink]="['/products']">All Products</a></li>
+          <li><a [routerLink]="['/products', 'electronics']">Electronics</a></li>
+          <li><a [routerLink]="['/products', 'clothing']">Clothing</a></li>
+        </ul>
+      </aside>
+      
+      <main>
+        <!-- Child routes render here -->
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  `,
+  styles: [`
+    .products-container {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+    aside { 
+      width: 200px;
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    main { flex: 1; }
+  `]
+})
+export class ProductsLayoutComponent {}
+```
+Child List Component with @for:
+
+```typescript
+// product-list.component.ts
+import { Component, OnInit, inject } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProductService, Product } from './product.service';
+
+@Component({
+  selector: 'app-product-list',
+  template: `
+    <h2>All Products</h2>
+    
+    @if (loading) {
+      <p>Loading...</p>
+    } @else if (error) {
+      <p class="error">{{ error }}</p>
+    } @else {
+      <div class="product-grid">
+        @for (product of products; track product.id) {
+          <div class="product-card" (click)="viewDetails(product.id)">
+            <h3>{{ product.name }}</h3>
+            <p class="price">{{ product.price | currency }}</p>
+            @if (product.category) {
+              <span class="category">{{ product.category }}</span>
+            }
+          </div>
+        } @empty {
+          <p>No products available</p>
+        }
+      </div>
+    }
+  `,
+  styles: [`
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+  `]
+})
+export class ProductListComponent implements OnInit {
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  private productService = inject(ProductService);
+  
+  products: Product[] = [];
+  loading = false;
+  error = '';
+
+  ngOnInit() {
+    this.loading = true;
+    this.productService.getProducts().subscribe({
+      next: (data) => {
+        this.products = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.error = 'Failed to load products';
+        this.loading = false;
+      }
+    });
+  }
+
+  viewDetails(id: number) {
+    // Relative navigation to /products/:id
+    this.router.navigate([id], { relativeTo: this.route });
+  }
+}
+```
+Child Detail Component with @if/@else:
+
+```typescript
+// product-detail.component.ts
+import { Component, OnInit, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductService, Product } from './product.service';
+
+@Component({
+  selector: 'app-product-detail',
+  template: `
+    @if (loading) {
+      <p>Loading product details...</p>
+    } @else if (error) {
+      <div class="error">
+        <p>{{ error }}</p>
+        <button (click)="goBack()">Back to List</button>
+      </div>
+    } @else if (product) {
+      <div class="product-detail">
+        <h2>{{ product.name }}</h2>
+        <p class="price">Price: {{ product.price | currency }}</p>
+        
+        @if (product.category) {
+          <p class="category">Category: {{ product.category }}</p>
+        }
+        
+        <div class="actions">
+          <button (click)="goBack()">Back to List</button>
+          <button (click)="editProduct()">Edit</button>
+        </div>
+      </div>
+    }
+  `,
+  styles: [`
+    .product-detail {
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .price {
+      font-size: 1.5rem;
+      color: #0066cc;
+      font-weight: bold;
+    }
+    .actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  `]
+})
+export class ProductDetailComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private productService = inject(ProductService);
+  
+  product?: Product;
+  loading = false;
+  error = '';
+
+  ngOnInit() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.loading = true;
+    
+    this.productService.getProductById(id).subscribe({
+      next: (data) => {
+        this.product = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.error = 'Product not found';
+        this.loading = false;
+      }
+    });
+  }
+
+  goBack() {
+    this.router.navigate(['../'], { relativeTo: this.route });
+  }
+
+  editProduct() {
+    // Navigate to edit route
+    this.router.navigate(['../edit', this.product?.id], { relativeTo: this.route });
+  }
+}
+```
+**Exercise idea:**
+
+- Create a `ProductsModule` with:  
+  - `ProductsComponent` (parent): shows list.  
+  - `ProductDetailComponent` (child): shows details.  
+- Configure nested routes so clicking a product row loads the details in the nested outlet.  
+
+***
+
+## Session-8
+
+- Angular Forms
+- Error Handling
+- `ngContainer` & `ngTemplate` & `ngContent`
+- Interceptors
+- Guard
+- Lazy loading
+---
+
+### 1. Angular Forms (Reactive Forms)
+
+**What are Reactive Forms?**
+
+Reactive forms let you build forms in your TypeScript code instead of the template. This gives you more control and makes testing easier.
+
+**Key Concepts:**
+
+- `FormControl`: represents a single input field
+- `FormGroup`: groups multiple controls together
+- `Validators`: built-in rules to check if input is valid
+
+**Step 1: Setup (Standalone Component)**
+
+```typescript
+// login.component.ts
+import { Component } from '@angular/core';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule],
+  templateUrl: './login.component.html'
+})
+export class LoginComponent {
+  // Create the form
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)])
+  });
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      console.log('Form Data:', this.loginForm.value);
+      // Send to server here
+    }
+  }
+}
+```
+
+**Step 2: Template**
+
+```html
+<!-- login.component.html -->
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Email:</label>
+    <input type="email" formControlName="email" />
+    
+    @if (loginForm.controls.email.invalid && loginForm.controls.email.touched) {
+      <small style="color: red;">
+        @if (loginForm.controls.email.hasError('required')) {
+          Email is required
+        }
+        @if (loginForm.controls.email.hasError('email')) {
+          Enter a valid email
+        }
+      </small>
+    }
+  </div>
+
+  <div>
+    <label>Password:</label>
+    <input type="password" formControlName="password" />
+    
+    @if (loginForm.controls.password.invalid && loginForm.controls.password.touched) {
+      <small style="color: red;">
+        Password must be at least 6 characters
+      </small>
+    }
+  </div>
+
+  <button type="submit" [disabled]="loginForm.invalid">Login</button>
+</form>
+```
+
+***
+### 2. Error Handling
+
+**Two Types of Errors:**
+
+1. **Form validation errors** (shown above)
+2. **HTTP errors** (when API calls fail)
+
+**HTTP Error Example:**
+
+```typescript
+// user.service.ts
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { catchError, throwError } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+  private http = inject(HttpClient);
+
+  getUsers() {
+    return this.http.get('https://api.example.com/users').pipe(
+      catchError(error => {
+        console.error('Error loading users:', error);
+        return throwError(() => new Error('Failed to load users. Please try again.'));
+      })
+    );
+  }
+}
+```
+
+**Component Handling Error:**
+
+```typescript
+// user-list.component.ts
+@Component({
+  template: `
+    <h2>Users</h2>
+    
+    @if (errorMessage) {
+      <div class="error">{{ errorMessage }}</div>
+    }
+    
+    @if (loading) {
+      <p>Loading...</p>
+    }
+    
+    @if (!loading && !errorMessage) {
+      @for (user of users; track user.id) {
+        <p>{{ user.name }}</p>
+      }
+    }
+  `
+})
+export class UserListComponent {
+  users: any[] = [];
+  loading = false;
+  errorMessage = '';
+
+  ngOnInit() {
+    this.loading = true;
+    this.userService.getUsers().subscribe({
+      next: (data) => {
+        this.users = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.errorMessage = err.message;
+        this.loading = false;
+      }
+    });
+  }
+}
+```
+
+***
+
+### 3. `ng-container`, `ng-template`, `ng-content`
+
+**ng-container** - Group elements without adding extra HTML
+
+```html
+<!-- No extra <div> in the DOM -->
+<ng-container>
+  @if (isLoggedIn) {
+    <p>Welcome back!</p>
+    <button>Logout</button>
+  }
+</ng-container>
+```
+
+**ng-template** - Reusable template pieces
+
+```html
+<ng-template #loading>
+  <div class="spinner">Loading...</div>
+</ng-template>
+
+@if (isLoading) {
+  <ng-container [ngTemplateOutlet]="loading"></ng-container>
+}
+```
+
+**ng-content** - Pass content from parent to child
+
+```typescript
+// card.component.ts
+@Component({
+  selector: 'app-card',
+  template: `
+    <div class="card">
+      <div class="card-header">
+        <ng-content select="[header]"></ng-content>
+      </div>
+      <div class="card-body">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  `,
+  styles: [`.card { border: 1px solid #ddd; padding: 15px; }`]
+})
+export class CardComponent {}
+```
+
+```html
+<!-- Using the card component -->
+<app-card>
+  <h3 header>User Profile</h3>
+  <p>This is the user's information</p>
+</app-card>
+```
+
+***
+
+### 4. Interceptors (Simple Introduction)
+
+**What are Interceptors?**
+
+Interceptors automatically run code on **every HTTP request**. Common uses:
+- Add authentication tokens
+- Log requests
+- Show loading spinner
+
+**Simple Logging Interceptor:**
+
+```typescript
+// logging.interceptor.ts
+import { HttpInterceptorFn } from '@angular/common/http';
+
+export const loggingInterceptor: HttpInterceptorFn = (req, next) => {
+  console.log('Request URL:', req.url);
+  console.log('Request Method:', req.method);
+  
+  // Continue with the request
+  return next(req);
+};
+```
+
+**Add Token to Every Request:**
+
+```typescript
+// auth.interceptor.ts
+import { HttpInterceptorFn } from '@angular/common/http';
+
+export const authInterceptor: HttpInterceptorFn = (req, next) => {
+  // Get token from localStorage
+  const token = localStorage.getItem('authToken');
+  
+  // Add token to request headers if it exists
+  if (token) {
+    req = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+  }
+  
+  return next(req);
+};
+```
+
+**Register Interceptors:**
+
+```typescript
+// app.config.ts
+import { ApplicationConfig } from '@angular/core';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './auth.interceptor';
+import { loggingInterceptor } from './logging.interceptor';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient(
+      withInterceptors([authInterceptor, loggingInterceptor])
+    )
+  ]
+};
+```
+
+***
+
+### 5. Guards (Route Protection)
+
+**What are Guards?**
+
+Guards decide if a user can visit a route. Example: only logged-in users can see the dashboard.
+
+**Simple Auth Guard:**
+
+```typescript
+// auth.guard.ts
+import { inject } from '@angular/core';
+import { Router, CanActivateFn } from '@angular/router';
+
+export const authGuard: CanActivateFn = () => {
+  const router = inject(Router);
+  const isLoggedIn = !!localStorage.getItem('authToken');
+  
+  if (isLoggedIn) {
+    return true; // Allow access
+  } else {
+    return router.createUrlTree(['/login']); // Redirect to login
+  }
+};
+```
+
+**Use Guard in Routes:**
+
+```typescript
+// app.routes.ts
+import { Routes } from '@angular/router';
+import { authGuard } from './auth.guard';
+
+export const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { 
+    path: 'dashboard', 
+    component: DashboardComponent,
+    canActivate: [authGuard] // Protected route
+  }
+];
+```
+
+***
+
+### 6. Lazy Loading (Load Code Only When Needed)
+
+**Why Lazy Loading?**
+
+Lazy loading makes your app start faster by only loading pages when users visit them
+
+**Step 1: Create Feature Module Routes**
+
+```typescript
+// features/products/products.routes.ts
+import { Routes } from '@angular/router';
+import { ProductListComponent } from './product-list.component';
+import { ProductDetailComponent } from './product-detail.component';
+
+export const PRODUCTS_ROUTES: Routes = [
+  { path: '', component: ProductListComponent },
+  { path: ':id', component: ProductDetailComponent }
+];
+```
+
+**Step 2: Lazy Load in Main Routes**
+
+```typescript
+// app.routes.ts
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  
+  // Lazy load products feature
+  {
+    path: 'products',
+    loadChildren: () => 
+      import('./features/products/products.routes')
+        .then(m => m.PRODUCTS_ROUTES)
+  },
+  
+  // Lazy load admin feature
+  {
+    path: 'admin',
+    loadChildren: () => 
+      import('./features/admin/admin.routes')
+        .then(m => m.ADMIN_ROUTES)
+  }
+];
+```
+
+**What Happens:**
+
+- User visits `/home` → Only home code loads
+- User clicks Products → Products code loads now (not before)
+- Faster initial page load
 
 ---
+## *Next Step*..
+---
  ***References***
+ - [Angular roadmap by angular love](https://angular.love/roadmap)
+- [Angular 17 ](https://www.youtube.com/playlist?list=PLgU7izgeR2lwwNRNY4fYQf3GZawV-EGnW)
+- [How to learn Program language](https://www.linkedin.com/pulse/%D8%A7%D8%B2%D8%A7%D9%89-%D8%A7%D8%AA%D8%B9%D9%84%D9%85-%D8%A7%D9%89-%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D9%87-%D8%A8%D8%B4%D9%83%D9%84-%D9%82%D9%88%D9%89-%D9%88%D8%A7%D9%83%D9%88%D9%86-%D9%85%D8%AA%D9%85%D9%83%D9%86-%D9%85%D9%86%D9%87%D8%A7-%D9%88%D9%81%D8%A7%D9%87%D9%85%D9%87%D8%A7-shaikoun/?trackingId=50P%2FW7%2FCTRiSqxdgU2utQA%3D%3D)
+- [The Ultimate Guide To Angular Evolution Angular](https://houseofangular.io/the-ultimate-guide-to-angular-evolution/)
  - [Understanding Single Page Applications (SPA)](https://blog.stackademic.com/understanding-single-page-applications-spa-81ce8a660a8c)
  - [Single-Page Application Architecture](https://www.ramotion.com/blog/single-page-application-architecture/)
  

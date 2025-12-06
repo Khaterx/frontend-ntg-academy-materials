@@ -1,0 +1,11 @@
+<div class="container flex justify-center  bg-amber-400 p-6 mt-10 gap-4">
+  <h1>Parent Component</h1>
+<div class="flex flex-col gap-2">
+    <label for="username">Username</label>
+    <input pInputText id="username" aria-describedby="username-help" [(ngModel)]="value" />
+    <small id="username-help">Enter your username to reset your password.</small>
+</div>
+
+  <!-- <app-child [dataFromParent]="value" (sendDataToParent)="showData($event)"></app-child> -->
+  <!-- <app-child [dataFromParent]="sendDataToChild()" (sendDataToParent)="showData($event)"></app-child> -->
+</div>

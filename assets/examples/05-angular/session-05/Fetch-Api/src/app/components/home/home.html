@@ -1,0 +1,42 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to Our Store</h1>
+      <p>Discover our amazing collection of products</p>
+      <p>For Test: {{title()}}</p>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="products-wrapper">
+      <!-- Products Grid -->
+      <div class="products-grid">
+        <!-- Product Card 1 -->
+         @for (item of products; track item.id) {
+        <div class="product-card">
+          <div class="product-image">
+            <img [src]="item.image" alt="Product 1" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">{{item.title}}</h3>
+            <p class="product-category">{{item.category}}</p>
+            <p class="product-description">{{item.description}}</p>
+            <div class="product-footer">
+              <span class="product-price">{{item.price | currency}}</span>
+              <div class="product-rating">
+                <span class="rate">⭐{{item.rating.rate}}</span>
+                <span class="count">({{item.rating.count}})</span>
+              </div>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        }@empty {
+          <p class="text-center">No products found</p>
+        }
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,16 @@
+<div class="container flex justify-center m-10 p-10 gap-4 bg-amber-600">
+  <h2>{{ title() }}</h2>
+  <p>This is the child component content.</p>
+  <br />
+  <p class="card">Data from parent:{{ dataFromParent }}</p>
+
+  <br />
+  <button
+    pButton
+    pRipple
+    type="button"
+    label="Click Me"
+    class="p-button-success"
+    (click)="onButtonClick()"
+  ></button>
+</div>
