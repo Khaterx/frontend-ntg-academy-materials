@@ -1,15 +1,15 @@
 # Angular Framework Essentials
 ## Syllabus
-- [x] Introduction to **Angular** ✅ 2025-11-24
-- [x] let's Build your first Angular app ✅ 2025-11-24
-- [x] Angular Structure project ✅ 2025-11-24
-- [x] Components ✅ 2025-11-27
-- [x] Templates, Interpolation and Directives ✅ 2025-11-27
-- [x] Data Binding & Pipes ✅ 2025-11-27
-- [x] Nested Components ✅ 2025-12-03
-- [x] Component lifecycle ✅ 2025-12-03
-- [x] Services & Dependency Injection ✅ 2025-12-03
-- [x] Retrieving Data using HTTP ✅ 2025-12-03
+- [ ] Introduction to **Angular**
+- [ ] let's Build your first Angular app
+- [ ] Angular Structure project
+- [ ] Components
+- [ ] Templates, Interpolation and Directives
+- [ ] Data Binding & Pipes
+- [ ] Nested Components
+- [ ] Component lifecycle
+- [ ] Services & Dependency Injection
+- [ ] Retrieving Data using HTTP
 - [ ] Dealing with Forms
 - [ ] Navigation and Routing
 
